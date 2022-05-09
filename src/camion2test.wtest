@@ -1,0 +1,40 @@
+import camion2.*
+import cosas2.*
+
+describe "Cantidad de bultos" {
+	method initialize(){
+		arena.peso(100)
+		residuosRadioactivos.peso(50)
+		paqueteLadrillos.ladrillos(110)
+		bateriaAntiarea.hayMisiles(true)
+		contenedor.agregarListaDeCosas([arena,residuosRadioactivos,paqueteLadrillos,bateriaAntiarea
+			                           ,knightRider,bumblebee])
+		camion.cargar(contenedor)	                           
+	}
+	
+	test "Total de bultos" {
+		assert.equals(10, camion.totalBultos())
+	}
+}
+
+describe "Consecuencias de la carga" {
+	method initialize(){
+		arena.peso(100)
+		residuosRadioactivos.peso(50)
+		paqueteLadrillos.ladrillos(110)
+		
+		camion.cargar(bumblebee)
+		camion.cargar(paqueteLadrillos)
+		camion.cargar(arena)
+		camion.cargar(bateriaAntiarea)
+		camion.cargar(residuosRadioactivos)	                           
+	}
+	test "Consecuencias de la carga en objetos cargados en el camión" {
+		assert.that(bumblebee.robot())
+		assert.notThat(bumblebee.auto())
+		assert.equals(122, paqueteLadrillos.ladrillos())
+		assert.equals(120, arena.peso())
+		assert.that(bateriaAntiarea.hayMisiles())
+		assert.equals(65, residuosRadioactivos.peso())
+	}
+}
