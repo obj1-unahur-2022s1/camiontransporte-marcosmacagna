@@ -1,4 +1,9 @@
-import cosas.*
+/* 
+ * camion2: Bien! 
+ * Ojo que te había quedado importado el archivo cosas.*, y debía ser cosas2.*
+ * 
+ */ 
+import cosas2.*
 
 object camion {
 

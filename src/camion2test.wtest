@@ -1,3 +1,8 @@
+/* 
+ * Bien. Te modifiqué los test de bumblebee por el cambio de variables que te hice
+ * en el código de cosas2. 
+ */
+
 import camion2.*
 import cosas2.*
 
@@ -30,8 +35,7 @@ describe "Consecuencias de la carga" {
 		camion.cargar(residuosRadioactivos)	                           
 	}
 	test "Consecuencias de la carga en objetos cargados en el camión" {
-		assert.that(bumblebee.robot())
-		assert.notThat(bumblebee.auto())
+		assert.notThat(bumblebee.esAuto())
 		assert.equals(122, paqueteLadrillos.ladrillos())
 		assert.equals(120, arena.peso())
 		assert.that(bateriaAntiarea.hayMisiles())
